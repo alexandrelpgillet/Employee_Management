@@ -1,5 +1,4 @@
-#include "struct.h"
-#include "func.h"
+#include "struct+func.h"
 #include <stdio.h>
 
 
@@ -57,8 +56,9 @@ int main()
         {
             printf("ERROR - NUMERO DE OPCAO INVALIDA , DIGITE VALORES DE 1 A 5\n");
             printf("DIGITE O NUMERO DA OPCAO QUE DESEJA ACESSAR:");
-            flush_in();
+           
             resposta_menu = getchar();
+            flush_in();
 
 
         }
