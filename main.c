@@ -1,7 +1,9 @@
-#include <struct.h>
+#include "struct.h"
+#include "func.h"
 #include <stdio.h>
 
-//Função para limpar o buffer do teclado durante a validação variavel resposta_menu
+
+
 void flush_in()
 {
     int ch;
@@ -33,14 +35,16 @@ int main()
         printf("|2)Listar Funcionarios          |\n");
         printf("|3)Pesquisar Funcionarios       |\n");
         printf("|4)Atualizar Funcionarios       |\n");
-        printf("|5)Excluir Funcionario           |\n");
+        printf("|5)Excluir Funcionario          |\n");
         printf("|                               |\n");
         printf("|-------------------------------|\n");
         
         //Escolha de qual opção do menu acessar 
 
         printf("DIGITE O NUMERO DA OPCAO QUE DESEJA ACESSAR:");
+       
         resposta_menu = getchar();
+        flush_in();
         
 
 
