@@ -1,5 +1,6 @@
 #include "struct+func.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 
 
@@ -20,6 +21,54 @@ int main()
    
     int flag_menu=1; // Variavel controle do menu
     char resposta_menu; //Opção a ser escolhida no menu
+
+
+    //Alocando memoria dinamicamente para armenzar todos os registros de funcionarios durante a execução do programa
+    Funcionario *Dados;
+    Dados = malloc(sizeof(Funcionario)*1000);
+
+    //Verificando se a alocação dinamica foi realizada com sucesso
+    if(Dados == NULL)
+    {
+        printf("ERROR-  NAO FOI POSSIVEL ALOCACAR DINAMICAMENTE MEMORIA P/APLICAÇAO");
+        exit(1);
+    }
+
+     
+
+    //Abrindo o arquivo backup.bin em modo de leitura
+    FILE *arquivo_funcionarios;
+    arquivo_funcionarios= fopen("backup.bin" , "rb");
+    
+
+
+    //Caso arquivo_funcionario retorne NULL significa que não existe um arquivo backup.bin , logo o programa deve criar um arquivno backup.bin
+    //Caso já exista um arquivo backup.bin , usaremos fread para ler todo o arquivo e passar todos os registros do arquivo.bin para a alocação dinamica da main
+
+    if(arquivo_funcionarios ==NULL)
+    {
+        arquivo_funcionarios=fopen("backup.bin" , "ab");
+        
+    }
+    else
+    {   
+
+        //Usar fread para ler o registro alocado dinamicamente de cada funcionario de todo o arquivo binário backup.bin
+        while(fread((Dados+quantidade_funcionarios), sizeof(Funcionario) , 1 , arquivo_funcionarios))
+        {
+
+            quantidade_funcionarios++;
+           
+        }
+        
+        fclose(arquivo_funcionarios);
+
+    }
+
+    
+
+
+
 
     while (flag_menu)
     {
