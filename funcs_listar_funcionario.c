@@ -17,11 +17,8 @@ void listar_funcionarios(Funcionario *Dados)
     }
     else
     {
-        printf("ERROR- LISTA DE FUNCIONARIOS VAZIA , PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU\n");
+        printf("ERROR- LISTA DE FUNCIONARIOS VAZIA \n");
         
-        getchar();
-
-        system("cls");
 
     }
 
@@ -33,6 +30,12 @@ void listar_funcionarios(Funcionario *Dados)
         printf("%d)NOME = %s | DEPARTAMENTO = %s | CARGO = %s | SALARIO = R$ %.2f\n\n" , ID , (Dados+i)->nome , (Dados+i)->departamento , (Dados+i)->cargo , (Dados+i)->salario);
         
     }
+
+    printf("\nPRRESIONE QUALQUER TECLA PARA RETORNAR AO MENU\n");
+    
+    getchar();
+    
+    system("cls");
 
 }
 

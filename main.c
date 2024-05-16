@@ -117,13 +117,15 @@ int main()
            break;
            
            case '2':
+
            system("cls");
            listar_funcionarios(Dados);
 
-           
            break;
            
            case '3':
+           
+
            
            break;
 
