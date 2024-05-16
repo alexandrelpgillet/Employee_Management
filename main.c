@@ -1,19 +1,10 @@
 #include "struct+func.h"
+#include "funcs_cadastro_funcionario.c"
 #include <stdio.h>
 #include <stdlib.h>
 
 
 
-void flush_in()
-{
-    int ch;
-
-    do
-    {
-       ch=fgetc(stdin);
-    }
-    while(ch!='\n' && ch!=EOF);
-}
 
 
 int main()
@@ -90,9 +81,12 @@ int main()
         //Escolha de qual opção do menu acessar 
 
         printf("DIGITE O NUMERO DA OPCAO QUE DESEJA ACESSAR:");
-       
-        resposta_menu = getchar();
+        
+        
+        resposta_menu= getchar();
         flush_in();
+        
+        
         
 
 
@@ -115,7 +109,8 @@ int main()
         switch(resposta_menu)
         {
            case '1':
-           
+           system("cls");
+           cadastro_funcionario(Dados);
            break;
            
            case '2':
