@@ -39,6 +39,10 @@ void cadastro_funcionario(Funcionario *Dados);
 
 void listar_funcionarios(Funcionario *Dados);
 
+//FUNÇÃO USADA PARA BUSCAR FUNCIONARIOS
+
+
+void buscar_funcionario(Funcionario *Dados);
 //OUTRAS FUNÇÕES A SEREM IMPLEMENTADAS ....
 
 

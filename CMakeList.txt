@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 23)
 add_executable(Employee_Management login.c
         funcs_cadastro_funcionario.c
         funcs_listar_funcionario.c
+        funcs_buscar_funcionario.c
         struct+func.h
      
 )

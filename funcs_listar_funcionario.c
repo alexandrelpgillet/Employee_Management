@@ -23,7 +23,8 @@ void listar_funcionarios(Funcionario *Dados)
     }
 
 
-
+    //Listar todos os funcionarios que existem na empresa
+    
     for(i=0 , ID=1 ; i<quantidade_funcionarios ; i++ , ID++)
     {
 

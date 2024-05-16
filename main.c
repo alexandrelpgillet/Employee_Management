@@ -1,6 +1,7 @@
 #include "struct+func.h"
 #include "funcs_cadastro_funcionario.c"
 #include "funcs_listar_funcionario.c"
+#include "funcs_buscar_funcionario.c"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -107,6 +108,8 @@ int main()
 
         }
 
+
+        //CASE 1 = CADASTRO_FUNCIONARIO() , CASE 2 = LISTAR_FUNCIONARIOS() , CASE 3 = BUSCAR_FUNCIONARIO()
         switch(resposta_menu)
         {
            case '1':
@@ -124,6 +127,8 @@ int main()
            break;
            
            case '3':
+           system("cls");
+           buscar_funcionario(Dados);
            
 
            
