@@ -257,13 +257,13 @@ void cadastro_funcionario(Funcionario *Dados)
 
     //CONFIRMACAO DO CADASTRO
      printf("-----DADOS A SEREM CADASTRADOS DO NOVO FUNCIONARIO-----\n");
-     printf("|                                                     |\n");
-     printf("|1)NOME = %s                                          |\n" , aux_nome);
-     printf("|2)DEPARTAMENTO = %s                                  |\n" , aux_departamento);
-     printf("|3)CARGO = %s                                         |\n" , aux_cargo);
-     printf("|4)SALARIO = R$ %.2f                                  |\n" , aux_salario);
-     printf("|                                                     |\n");
-     printf("|-----------------------------------------------------|\n");
+     printf("|                                                     \n");
+     printf("|1)NOME = %s                                          \n" , aux_nome);
+     printf("|2)DEPARTAMENTO = %s                                  \n" , aux_departamento);
+     printf("|3)CARGO = %s                                         \n" , aux_cargo);
+     printf("|4)SALARIO = R$ %.2f                                  \n" , aux_salario);
+     printf("|                                                     \n");
+     printf("|-----------------------------------------------------\n");
      printf("\n");
      
 
@@ -306,10 +306,10 @@ void cadastro_funcionario(Funcionario *Dados)
           printf("OPERACAO DE CADASTRO REALIZADA COM SUCESSO\n");
 
         
-          strcpy(Dados->nome, aux_nome);
-          strcpy(Dados->departamento , aux_departamento);
-          strcpy(Dados->cargo , aux_cargo);
-          (Dados->salario)=aux_salario;
+          strcpy((Dados+quantidade_funcionarios)->nome, aux_nome);
+          strcpy((Dados+quantidade_funcionarios)->departamento , aux_departamento);
+          strcpy((Dados+quantidade_funcionarios)->cargo , aux_cargo);
+          ((Dados+quantidade_funcionarios)->salario)=aux_salario;
           quantidade_funcionarios++;
 
         

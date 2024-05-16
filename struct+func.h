@@ -35,6 +35,9 @@ void string_cadastro_validation(char string[60], char *label , int char_size);
 void cadastro_funcionario(Funcionario *Dados);
 
 
+//FUNÇÃO USADA PARA LISTAR FUNCIONARIOS
+
+void listar_funcionarios(Funcionario *Dados);
 
 //OUTRAS FUNÇÕES A SEREM IMPLEMENTADAS ....
 

@@ -1,5 +1,6 @@
 #include "struct+func.h"
 #include "funcs_cadastro_funcionario.c"
+#include "funcs_listar_funcionario.c"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -109,11 +110,16 @@ int main()
         switch(resposta_menu)
         {
            case '1':
+           
            system("cls");
            cadastro_funcionario(Dados);
+
            break;
            
            case '2':
+           system("cls");
+           listar_funcionarios(Dados);
+
            
            break;
            
