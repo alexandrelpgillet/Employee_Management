@@ -32,11 +32,7 @@ void listar_funcionarios(Funcionario *Dados)
         
     }
 
-    printf("\nPRRESIONE QUALQUER TECLA PARA RETORNAR AO MENU\n");
     
-    getchar();
-    
-    system("cls");
 
 }
 

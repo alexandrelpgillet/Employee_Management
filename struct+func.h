@@ -42,7 +42,17 @@ void listar_funcionarios(Funcionario *Dados);
 //FUNÇÃO USADA PARA BUSCAR FUNCIONARIOS
 
 
-void buscar_funcionario(Funcionario *Dados);
+int buscar_funcionario(Funcionario *Dados);
+
+
+//FUNÇÃO USADA PARA ATUALIZAR DADOS DO FUNCIONARIO
+
+
+void atualizar_funcionario(Funcionario *Dados);
+
+long int id_conversion();
+
+
 //OUTRAS FUNÇÕES A SEREM IMPLEMENTADAS ....
 
 

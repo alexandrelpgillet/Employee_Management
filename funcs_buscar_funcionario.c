@@ -4,7 +4,7 @@
 #include <string.h>
 
 
-void buscar_funcionario(Funcionario *Dados)
+int buscar_funcionario(Funcionario *Dados)
 {
     //Variaveis usadas na função
     char busca[60];
@@ -54,7 +54,8 @@ void buscar_funcionario(Funcionario *Dados)
 
          if(flag_busca_vazia==0)
          {
-            printf("\n\n--------------------NENHUM DADO ENCONTRADO DURANTE A BUSCA NO SISTEMA-----------------------------\n");
+            printf("\n\nNENHUM DADO ENCONTRADO DURANTE A BUSCA NO SISTEMA\n");
+            return -1;
          }
 
 
@@ -71,10 +72,6 @@ void buscar_funcionario(Funcionario *Dados)
 
 
 
-    printf("\nPRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU INICIAL\n");
     
-    getchar();
-    
-    system("cls");
-
+ return 0;
 }

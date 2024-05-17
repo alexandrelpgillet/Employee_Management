@@ -2,6 +2,7 @@
 #include "funcs_cadastro_funcionario.c"
 #include "funcs_listar_funcionario.c"
 #include "funcs_buscar_funcionario.c"
+#include "funcs_atualizar_funcionario.c"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,6 +25,7 @@ int main()
     if(Dados == NULL)
     {
         printf("ERROR-  NAO FOI POSSIVEL ALOCACAR DINAMICAMENTE MEMORIA P/APLICAÇAO");
+
         exit(1);
     }
 
@@ -123,18 +125,38 @@ int main()
 
            system("cls");
            listar_funcionarios(Dados);
+           
+           printf("\nPRRESIONE QUALQUER TECLA PARA RETORNAR AO MENU\n");
+    
+           getchar();
+    
+           system("cls");
 
            break;
            
            case '3':
+           
            system("cls");
+
            buscar_funcionario(Dados);
+
+           printf("\nPRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU INICIAL\n");
+    
+           getchar();
+    
+           system("cls");
            
 
            
            break;
 
            case '4':
+           system("cls");
+
+           atualizar_funcionario(Dados);
+
+           system("cls");
+           
            
            break;
            
