@@ -161,6 +161,10 @@ int main()
            break;
            
            case '5':
+           printf("Função ainda a ser implementada\n");
+           getchar();
+           system("cls");
+
            
            break;
            
