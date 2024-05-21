@@ -3,6 +3,7 @@
 #include "funcs_listar_funcionario.c"
 #include "funcs_buscar_funcionario.c"
 #include "funcs_atualizar_funcionario.c"
+#include "funcs_excluir_funcionario.c"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -113,7 +114,7 @@ int main()
 
         //CASE 1 = CADASTRO_FUNCIONARIO() , CASE 2 = LISTAR_FUNCIONARIOS() , CASE 3 = BUSCAR_FUNCIONARIO()
         switch(resposta_menu)
-        {
+        {  
            case '1':
            
            system("cls");
@@ -161,8 +162,9 @@ int main()
            break;
            
            case '5':
-           printf("Função ainda a ser implementada\n");
-           getchar();
+           excluir_funcionario(Dados);
+           flush_in();
+
            system("cls");
 
            
