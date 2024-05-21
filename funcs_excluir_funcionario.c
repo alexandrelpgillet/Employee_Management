@@ -18,9 +18,10 @@ void excluir_funcionario(Funcionario *Dados)
     
     if(quantidade_funcionarios ==0)
     {
-        printf("NENHUM FUNCIONARIO CADASTRADO\n");
+        printf("NENHUM FUNCIONARIO CADASTRADO, PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU\n");
         return;
     }
+
     printf("DIGITE 'L' PARA LISTAR TODOS OS FUNCIONARIOS OU DIGITE 'D' PARA DIGITAR NOME/DEPARTAMENTO/CARGOn\n");
     resposta_tipo= getchar();
 
@@ -71,7 +72,7 @@ void excluir_funcionario(Funcionario *Dados)
         }
 
 
-        
+        system("cls");
 
         flush_in();
 
@@ -79,7 +80,7 @@ void excluir_funcionario(Funcionario *Dados)
         {
             case '1':
 
-            printf("DIGITE O NOME DO FUNCIONARIO");
+            printf("DIGITE O NOME DO FUNCIONARIO\n");
             fgets(aux_nome , 60 , stdin);
             string_remove_line_break(aux_nome);
 
@@ -99,9 +100,9 @@ void excluir_funcionario(Funcionario *Dados)
 
             case '2':
 
-            printf("DIGITE O DEPARTAMENTO DO FUNCIONARIO");
+            printf("DIGITE O DEPARTAMENTO DO FUNCIONARIO\n");
             fgets(aux_departamento , 60 , stdin);
-            string_remove_line_break(aux_nome);
+            string_remove_line_break(aux_departamento);
 
             for(i=0 , ID=1; i<quantidade_funcionarios ; i++ , ID++)
             {
@@ -116,9 +117,9 @@ void excluir_funcionario(Funcionario *Dados)
 
             case '3':
 
-            printf("DIGITE O CARGO DO FUNCIONARIO");
+            printf("DIGITE O CARGO DO FUNCIONARIO\n");
             fgets(aux_cargo , 60 , stdin);
-            string_remove_line_break(aux_nome);
+            string_remove_line_break(aux_cargo);
 
             for(i=0 , ID=1; i<quantidade_funcionarios ; i++ , ID++)
             {
@@ -144,11 +145,14 @@ void excluir_funcionario(Funcionario *Dados)
         printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
         scanf("%d" , &ID_delete);
 
-        while(ID_delete<0 && ID_delete>ID)
+        while(ID_delete<0 || ID_delete>ID)
         {
             printf("ERROR - ID INVALIDO\n");
             printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
+            scanf("%d" , &ID_delete);
         }
+
+        system("cls");
 
         if(ID_delete>0)
         {
@@ -171,6 +175,36 @@ void excluir_funcionario(Funcionario *Dados)
 
         }
         
+
+
+    }
+    else
+    {
+        listar_funcionarios(Dados);
+        printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
+        scanf("%d" , &ID_delete);
+
+        while(ID_delete<0 || ID_delete>quantidade_funcionarios)
+        {
+            printf("ERROR - ID INVALIDO");
+            printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
+            scanf("%d" , &ID_delete);
+        }
+
+        if(ID_delete>0)
+        {
+            for(i = ID_delete - 1 ; i<quantidade_funcionarios-1 ; i++)
+            {
+                strcpy((Dados+i)->nome , (Dados+i+1)->nome);
+                strcpy((Dados+i)->departamento , (Dados+i+1)->departamento);
+                strcpy((Dados+i)->cargo , (Dados+i+1)->cargo);
+                (Dados+i)->salario = (Dados+i+1)->salario;
+                
+            }
+            quantidade_funcionarios--;
+        }
+
+
 
 
     }
