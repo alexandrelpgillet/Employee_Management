@@ -16,6 +16,7 @@ int main()
    
     int flag_menu=1; // Variavel controle do menu
     char resposta_menu; //Opção a ser escolhida no menu
+    int i;
 
 
     //Alocando memoria dinamicamente para armenzar todos os registros de funcionarios durante a execução do programa
@@ -34,6 +35,7 @@ int main()
 
     //Abrindo o arquivo backup.bin em modo de leitura
     FILE *arquivo_funcionarios;
+
     arquivo_funcionarios= fopen("backup.bin" , "rb");
     
 
@@ -43,7 +45,8 @@ int main()
 
     if(arquivo_funcionarios ==NULL)
     {
-        arquivo_funcionarios=fopen("backup.bin" , "ab");
+        printf("NENHUM BACKUP ENCONTRADO, PRESSIONE QUALQUER TECLA PARA CONTINUAR\n");
+        getchar();
         
     }
     else
@@ -183,7 +186,33 @@ int main()
 
          case '6':
 
+           arquivo_funcionarios=fopen("backup.bin" , "wb");
+
+           if(arquivo_funcionarios == NULL)
+           {
+              
+              printf("ERROR AO SALVAR BACKUP\n");
+             
+              exit(1);
+           
+           }
+
+           for(i=0; i<quantidade_funcionarios ; i++)
+           {
+
+             fwrite((Dados+i) , sizeof(Funcionario) , 1 , arquivo_funcionarios);
+           
+           }
+
+           fclose(arquivo_funcionarios);
+
+           flag_menu=0;
+
+
+
          break;
+
+
 
            
          default:
