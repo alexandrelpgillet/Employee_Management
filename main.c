@@ -80,6 +80,7 @@ int main()
         printf("|3)Pesquisar Funcionarios       |\n");
         printf("|4)Atualizar Funcionarios       |\n");
         printf("|5)Excluir Funcionario          |\n");
+        printf("|6)Encerrar Programa            |\n");
         printf("|                               |\n");
         printf("|-------------------------------|\n");
         
@@ -98,11 +99,12 @@ int main()
         
         //Validação da opção escolhida pelo usuario
         
-        //Usado a tabela ASCII (49 = char '1' , 50 = char '2' , 51 = char '3' , 52 = char '4' , 53 = char '5')
+        //Usado a tabela ASCII (49 = char '1' , 50 = char '2' , 51 = char '3' , 52 = char '4' , 53 = char '5' , 54 = char '6')
         
-        while(resposta_menu<49 || resposta_menu>53)
+        while(resposta_menu<49 || resposta_menu>54)
         {
             printf("ERROR - NUMERO DE OPCAO INVALIDA , DIGITE VALORES DE 1 A 5\n");
+            
             printf("DIGITE O NUMERO DA OPCAO QUE DESEJA ACESSAR:");
            
             resposta_menu = getchar();
@@ -117,61 +119,76 @@ int main()
         {  
            case '1':
            
-           system("cls");
-           cadastro_funcionario(Dados);
+             system("cls");
+            
+             cadastro_funcionario(Dados);
 
            break;
+           
            
            case '2':
 
-           system("cls");
-           listar_funcionarios(Dados);
+              system("cls");
+              
+              listar_funcionarios(Dados);
            
-           printf("\nPRRESIONE QUALQUER TECLA PARA RETORNAR AO MENU\n");
+              printf("\nPRRESIONE QUALQUER TECLA PARA RETORNAR AO MENU\n");
     
-           getchar();
+              getchar();
     
-           system("cls");
+              system("cls");
 
            break;
            
+
            case '3':
            
-           system("cls");
+             system("cls");
 
-           buscar_funcionario(Dados);
+             buscar_funcionario(Dados);
 
-           printf("\nPRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU INICIAL\n");
+             printf("\nPRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU INICIAL\n");
     
-           getchar();
+             getchar();
     
-           system("cls");
+             system("cls");
            
+           
+          break;
+
+
+          case '4':
+             
+             system("cls");
+
+             atualizar_funcionario(Dados);
+
+             system("cls");
+           
+           
+          break;
+           
+          case '5':
+
+            excluir_funcionario(Dados);
+            
+            flush_in();
+
+            system("cls");
 
            
-           break;
+         break;
 
-           case '4':
-           system("cls");
 
-           atualizar_funcionario(Dados);
 
-           system("cls");
-           
-           
-           break;
-           
-           case '5':
-           excluir_funcionario(Dados);
-           flush_in();
+         case '6':
 
-           system("cls");
+         break;
 
            
-           break;
-           
-           default:
-           break;
+         default:
+         break;
+        
         }
 
         
