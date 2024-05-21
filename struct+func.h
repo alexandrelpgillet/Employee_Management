@@ -53,6 +53,11 @@ void atualizar_funcionario(Funcionario *Dados);
 long int id_conversion();
 
 
+//FUNÇÃO USADA PARA EXCLUIR DADOS DO FUNCIONARIO 
+
+
+void excluir_funcionario(Funcionario *Dados);
+
 //OUTRAS FUNÇÕES A SEREM IMPLEMENTADAS ....
 
 
