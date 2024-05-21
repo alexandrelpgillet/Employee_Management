@@ -6,14 +6,16 @@
 void excluir_funcionario(Funcionario *Dados)
 {
     
-    char resposta_tipo;
-    char resposta_tipo_digitar;
-    char aux_nome[60];
-    char aux_departamento[20];
-    char aux_cargo[20];
+    char resposta_tipo;//Listar todos os funcionario ou Digitar Nome/ Departamento / Cargo  para buscar funcionario
+
+    char resposta_tipo_digitar;//Digitar Nome  ou Departamento ou Cargo para busca
+    
+    char aux_nome[60];//Variavel auxiliar para armazenar resposta de nome do funcionario para busca
+    char aux_departamento[20]; //Variavel auxiliar para armazenar reposta de departamento do funcionario para busca
+    char aux_cargo[20]; //Variavel auxiliar para armazenar resposta do cargo do funcionario para busca
     int i ;
-    int ID;
-    int ID_delete;
+    int ID; 
+    int ID_delete; // Variavel para armazenar o ID escolhido pelo usuario a ser excluido , caso =0 , cancelar operção de exclusão do funcionario
     
     
     if(quantidade_funcionarios ==0)
@@ -22,12 +24,16 @@ void excluir_funcionario(Funcionario *Dados)
         return;
     }
 
-    printf("DIGITE 'L' PARA LISTAR TODOS OS FUNCIONARIOS OU DIGITE 'D' PARA DIGITAR NOME/DEPARTAMENTO/CARGOn\n");
-    resposta_tipo= getchar();
+
 
     //LISTAR  TODOS OS FUNCIONARIOS = L
     //DIGITAR NOME , DEPARTAMENTO , CARGO = D
+    
+    printf("DIGITE 'L' PARA LISTAR TODOS OS FUNCIONARIOS OU DIGITE 'D' PARA DIGITAR NOME/DEPARTAMENTO/CARGOn\n");
+    resposta_tipo= getchar();
 
+     
+    //Validação da variavel char resposta_tipo
     while(resposta_tipo!='L' && resposta_tipo!='D')
     {   
 
@@ -40,6 +46,8 @@ void excluir_funcionario(Funcionario *Dados)
         resposta_tipo=getchar();
     }
 
+
+    //Menu de opções de busca para digitar Nome/Departamento/Cargo
     if(resposta_tipo=='D')
     {   
         system("cls");
@@ -54,6 +62,7 @@ void excluir_funcionario(Funcionario *Dados)
         flush_in();
         scanf("%c" , &resposta_tipo_digitar);
         
+        //Validação da resposta_tipo_digitar de acordo com a tabela ASCII (49 = '1' , 50='2' , 51= '3' , 52 = '4')
         while(resposta_tipo_digitar<49 || resposta_tipo_digitar>52)
         {
              
@@ -65,9 +74,7 @@ void excluir_funcionario(Funcionario *Dados)
              
              scanf("%c" , &resposta_tipo_digitar);
 
-            
-
-           
+             
 
         }
 
@@ -76,6 +83,8 @@ void excluir_funcionario(Funcionario *Dados)
 
         flush_in();
 
+
+        //Case 1 = Busca pelo NOME , Case 2 = Busca pelo Departamento , Case 3 = Busca pelo Cargo , Case 4 = Cancelar operação
         switch(resposta_tipo_digitar)
         {
             case '1':
@@ -141,10 +150,14 @@ void excluir_funcionario(Funcionario *Dados)
             break;
 
         }
+        
+        //Entrada do ID do funcionario a ser excluido sendo armazenada na variavel do tipo int ID_delete
 
         printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
         scanf("%d" , &ID_delete);
+        
 
+        //Validação da variavel ID_delete  (Não pode ser menor que zero ou maior que ID)
         while(ID_delete<0 || ID_delete>ID)
         {
             printf("ERROR - ID INVALIDO\n");
@@ -154,6 +167,8 @@ void excluir_funcionario(Funcionario *Dados)
 
         system("cls");
 
+
+        //Exclusão dos dados do funcionario a partir do ID_delete escolhido
         if(ID_delete>0)
         {
 
@@ -178,12 +193,18 @@ void excluir_funcionario(Funcionario *Dados)
 
 
     }
-    else
-    {
+    else 
+    {   
+
+        //Listando todos funcionarios presentes no registro Funcionario *Dados
         listar_funcionarios(Dados);
+
+        //Entrada do ID do funcionario a ser excluido sendo armazenada na variavel do tipo int ID_delete
+
         printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
         scanf("%d" , &ID_delete);
-
+        
+        //Validação da variavel ID_delete  (Não pode ser menor que zero ou maior que a quantidade total de funcionarios)
         while(ID_delete<0 || ID_delete>quantidade_funcionarios)
         {
             printf("ERROR - ID INVALIDO");
@@ -191,6 +212,8 @@ void excluir_funcionario(Funcionario *Dados)
             scanf("%d" , &ID_delete);
         }
 
+
+        //Exclusão dos dados do funcionario a partir do ID_delete escolhido
         if(ID_delete>0)
         {
             for(i = ID_delete - 1 ; i<quantidade_funcionarios-1 ; i++)
