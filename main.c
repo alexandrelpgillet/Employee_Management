@@ -205,6 +205,7 @@ int main()
            }
 
            fclose(arquivo_funcionarios);
+           free(Dados);
 
            flag_menu=0;
 
