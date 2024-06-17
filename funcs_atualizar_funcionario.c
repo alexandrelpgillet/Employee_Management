@@ -45,7 +45,7 @@ long int  id_conversion()
 
         if(*final_id !='\0')
         {
-            printf("ERRO DE CONVERSÃO (STRING -> LONG INT)\n");
+            printf("ERRO DE CONVERSAO (STRING -> LONG INT)\n");
             exit(1);
         }
 
@@ -183,7 +183,7 @@ void atualizar_funcionario(Funcionario *Dados)
     
     
     
-         printf("CASO QUEIRA EDITAR ALGUMA INFORMAÇÃO DIGITE O NUMERO CORRESPONDENTE A NUMERAÇÃO DOS ITENS(1-NOME , 2-DEPARTAMENTO , 3 - CARGO , 4 - SALARIO) , CASO NAO QUEIRA EDITAR DIGITE ENTER\n");
+         printf("CASO QUEIRA EDITAR ALGUMA INFORMAÇÃO DIGITE O NUMERO CORRESPONDENTE A NUMERACAOO DOS ITENS(1-NOME , 2-DEPARTAMENTO , 3 - CARGO , 4 - SALARIO) , CASO NAO QUEIRA EDITAR DIGITE ENTER\n");
       
       
          scanf("%c",&editar_cadastro );
