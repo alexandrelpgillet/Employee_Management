@@ -22,6 +22,7 @@ void excluir_funcionario(Funcionario *Dados)
     
     int ID_delete; // Variavel para armazenar o ID escolhido pelo usuario a ser excluido , caso =0 , cancelar operção de exclusão do funcionario
     
+    int flag_busca=0;
     
     if(quantidade_funcionarios ==0)
     {
@@ -117,6 +118,7 @@ void excluir_funcionario(Funcionario *Dados)
                   {
 
                      printf("%d)NOME = %s | DEPARTAMENTO = %s | CARGO %s" , ID, (Dados+i)->nome , (Dados+i)->departamento , (Dados+i)->cargo);
+                     flag_busca=1;
                   }
             
               }
@@ -139,6 +141,8 @@ void excluir_funcionario(Funcionario *Dados)
                 if(strcmp(aux_departamento , (Dados+i)->departamento)==0)
                 {
                   printf("%d)NOME = %s | DEPARTAMENTO = %s | CARGO %s" , ID, (Dados+i)->nome , (Dados+i)->departamento , (Dados+i)->cargo);
+                  
+                  flag_busca =1; 
                 
                 }
               
@@ -159,6 +163,8 @@ void excluir_funcionario(Funcionario *Dados)
                  if(strcmp(aux_cargo , (Dados+i)->cargo)==0)
                  {
                     printf("%d)NOME = %s | DEPARTAMENTO = %s | CARGO %s" , ID, (Dados+i)->nome , (Dados+i)->departamento , (Dados+i)->cargo);
+
+                    flag_busca =1;
             
                  }
             
@@ -180,20 +186,33 @@ void excluir_funcionario(Funcionario *Dados)
         }
         
         //Entrada do ID do funcionario a ser excluido sendo armazenada na variavel do tipo int ID_delete
-
-        printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
         
-        scanf("%d" , &ID_delete);
-        
-
-        //Validação da variavel ID_delete  (Não pode ser menor que zero ou maior que ID)
-        while(ID_delete<0 || ID_delete>ID)
+        if(flag_busca ==1 )
         {
-            printf("ERROR - ID INVALIDO\n");
+           printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
+        
+           scanf("%d" , &ID_delete);
+        
+
+           //Validação da variavel ID_delete  (Não pode ser menor que zero ou maior que ID)
+           while(ID_delete<0 || ID_delete>ID)
+           {
+              printf("ERROR - ID INVALIDO\n");
             
-            printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
+              printf("\n\nDIGITE O ID A SER EXCLUIDO OU DIGITE 0 PARA CANCELAR\n");
             
-            scanf("%d" , &ID_delete);
+              scanf("%d" , &ID_delete);
+            }
+
+        }
+        else
+        {
+            printf("\n\nNENHUM FUNCIONARIO ENCONTRADO\n\n");
+            printf("\nPRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU\n");
+            
+            getchar();
+
+            return;
         }
 
 
